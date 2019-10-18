@@ -27,8 +27,8 @@ $pdo = connectToDb();
 //   exit('dbError:' . $e->getMessage());
 // }
 //データ登録SQL作成
-$sql = 'INSERT INTO user_table(id, name, lid, lpw, kanri_flg, life_flg, indate)
-VALUES (NULL, :a1, :a2, :a3,:a4,:a5, sysdate())';
+$sql = 'INSERT INTO user_table(id, name, lid, lpw, kanri_flg, life_flg)
+VALUES (NULL, :a1, :a2, :a3, :a4, :a5)';
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':a1', $name, PDO::PARAM_STR);    //Integer（数値の場合 PDO::PARAM_INT)
 $stmt->bindValue(':a2', $lid, PDO::PARAM_STR);   //Integer（数値の場合 PDO::PARAM_INT)

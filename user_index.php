@@ -48,14 +48,14 @@
             <input type="text" class="form-control" id="lpw" name="lpw">
         </div>
         <div class="form-group">
-            <label for="kanri_flg">0:一般・1:管理者</label>
+            <label for="kanri_flg">一般・管理者</label>
             <select id="kanri_flg" class="form-control" name="kanri_flg">
                 <option value="0">一般</option>
                 <option value="1">管理者</option>
             </select>
         </div>
         <div class="form-group">
-            <label for="life_flg">0:アクティブ・1:非アクティブ</label>
+            <label for="life_flg">アクティブ・非アクティブ</label>
             <select id="life_flg" class="form-control" name="life_flg">
                 <option value="0">アクティブ</option>
                 <option value="1">非アクティブ</option>
