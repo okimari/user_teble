@@ -2,7 +2,7 @@
 // 関数ファイル読み込み
 // var_dump($_POST);
 // exit();
-include('user_function.php');
+include('user_functions.php');
 //入力チェック(受信確認処理追加)
 if (
     !isset($_POST['name']) || $_POST['name'] == '' ||

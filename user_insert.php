@@ -16,7 +16,7 @@ $lpw = $_POST['lpw'];
 $kanri_flg = $_POST['kanri_flg'];
 $life_flg = $_POST['life_flg'];
 //DB接続
-include('user_function.php');
+include('user_functions.php');
 $pdo = connectToDb();
 // $dbn = 'mysql:dbname=YOUR_DB_NAME;charset=utf8;port=3306;host=localhost';
 // $user = 'root';

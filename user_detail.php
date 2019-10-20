@@ -1,15 +1,33 @@
 <?php
+
+//セッションスタート
+session_start();
+
 // 関数ファイルの読み込み
-include('user_function.php');
+include('user_functions.php');
+
+// ログイン状態のチェック
+checkSessionId();
+
+$menu = menu();
+
+// getで送信されたidを取得
+if (!isset($_GET['id'])) {
+    exit("Error");
+}
+
 // getで送信されたidを取得
 $id = $_GET['id'];
+
 //DB接続します
 $pdo = connectToDb();
+
 //データ登録SQL作成，指定したidのみ表示する
 $sql = 'SELECT *FROM user_table WHERE id= :id';
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':id', $id, PDO::PARAM_INT);
 $status = $stmt->execute();
+
 //データ表示
 if ($status == false) {
     // エラーのとき

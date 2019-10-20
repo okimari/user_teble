@@ -1,3 +1,12 @@
+<?php
+// セッションのスタート
+session_start();
+
+// ログイン状態のチェック
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="ja">
 

@@ -1,6 +1,6 @@
 <?php
 // 関数ファイルの読み込み
-include('user_function.php');
+include('user_functions.php');
 //1. GETデータ取得
 $id   = $_GET['id'];
 //2. DB接続します(エラー処理追加)

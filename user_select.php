@@ -1,15 +1,17 @@
 <?php
+
+// セッションのスタート
+session_start();
 //1. DB接続
-include('user_function.php');
+include('user_functions.php');
+
+// ログイン状態のチェック
+checkSessionId();
+
+$menu = menu();
+
 $pdo = connectToDb();
-// $dbn = 'mysql:dbname=gsacfd04_03;charset=utf8;port=3306;host=localhost';
-// $user = 'root';
-// $pwd = '';
-// try {
-//   $pdo = new PDO($dbn, $user, $pwd);
-// } catch (PDOException $e) {
-//   exit('dbError:' . $e->getMessage());
-// }
+
 //データ表示SQL作成
 $sql = 'SELECT * FROM user_table';
 $stmt = $pdo->prepare($sql);
@@ -22,14 +24,8 @@ if ($status == false) {
     exit('sqlError:' . $error[2]);
 } else {
     //Selectデータの数だけ自動でループしてくれる
-    //http://php.net/manual/ja/pdostatement.fetch.php
     while ($result = $stmt->fetch(PDO::FETCH_ASSOC)) {
-        // $view .= '<li class="list-group-item">';
-        // // $view .= '<p>' . $result['deadline'] . '-' . $result['task'] . '</p>';
-        // $view .= '<p>' . $result['name'] . '-' . $result['task'] . '-' . $result['comment'] . '</p>';
-        // $view .= '<a href="detail.php?id=' . $result['id'] . '" class="badge badge-primary">Edit</a>';
-        // $view .= '<a href="delete.php?id=' . $result['id'] . '" class="badge badge-danger">Delete</a>';
-        // $view .= '</li>';
+
         $view .= '<table class="table" style="table-layout: fixed; overflow-wrap : break-word;">';
         $view .= '<thead class="thead-light">';
         $view .= '<tr>';
@@ -76,12 +72,7 @@ if ($status == false) {
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="user_index.php">登録画面</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="user_select.php">登録者一覧</a>
-                    </li>
+                    <?= $menu ?>
                 </ul>
             </div>
         </nav>
@@ -89,7 +80,6 @@ if ($status == false) {
 
     <div>
         <ul class="table">
-
             <table class="table" style="table-layout: fixed;">
                 <thead class="thead-light">
                     <tr>
@@ -102,9 +92,6 @@ if ($status == false) {
                     </tr>
                 </thead>
             </table>
-
-
-
             <?= $view ?>
         </ul>
     </div>
