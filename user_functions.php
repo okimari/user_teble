@@ -24,29 +24,18 @@ function h($str)
 }
 
 
-// SESSIONチェック＆リジェネレイト
-function checkSessionId()
-{
-    // ログイン失敗時の処理（ログイン画面に移動）
-    // ログイン成功時の処理（一覧画面に移動）
-    if (!isset($_SESSION['session_id']) || $_SESSION['session_id'] != session_id()) {
-        header('Location: user_login.php');
-    } else {
-        session_regenerate_id(true);
-        $_SESSION['session_id'] = session_id();
-    }
-}
-
-
-
-
-
-
 
 //menuを指定する
 function menu()
 {
-    $menu = '<li class="nav-item"><a class="nav-link" href="user_index.php">todo登録</a></li><li class="nav-item"><a class="nav-link" href="user_select.php">todo一覧</a></li>';
+    $menu = '<li class="nav-item"><a class="nav-link" href="user_index.php">ユーザー登録</a></li><li class="nav-item"><a class="nav-link" href="user_select.php">ユーザー登録一覧</a></li>';
     $menu .= '<li class="nav-item"><a class="nav-link" href="user_logout.php">ログアウト</a></li>';
     return $menu;
+}
+
+function menu02()
+{
+    $menu02 = '<li class="nav-item"><a class="nav-link" href="user_index.php">ユーザー登録</a></li>';
+    $menu02 .= '<li class="nav-item"><a class="nav-link" href="user_logout.php">ログアウト</a></li>';
+    return $menu02;
 }

@@ -33,11 +33,14 @@ session_start();
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="user_index.php">登録画面</a>
-                    </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" href="user_index.php">ユーザー登録画面</a>
+                    </li> -->
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="user_select.php">登録者一覧</a>
+                    </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="user_select.php">登録一覧</a>
                     </li>
                 </ul>
             </div>
